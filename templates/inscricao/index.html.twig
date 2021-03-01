@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscrição{% endblock %}
+
+{% block body %}
+    <div class="form-group p-5">
+    {% for message in app.flashes('ok') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% if errors %}
+        {% for error in errors %}
+            <ul class="alert alert-danger">
+                <li>{{ error.message }}</li>
+            </ul>
+        {% endfor %}
+    {% endif %}
+    </div>
+    <div class="container">
+        <form method="POST" action="/inscricao/create">
+            <div class="col-md-12 p-5">
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label for="nome">Nome*:</label>
+                        <input autocomplete="off" type="text" class="form-control" name="nome" id="nome">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="sobrenome">Sobrenome*:</label>
+                        <input autocomplete="off" class="form-control" type="text" name="sobrenome" id="sobrenome">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label for="idade">Idade*:</label>
+                        <input autocomplete="off" class="form-control" type="text" name="idade" id="idade">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email">Email*:</label>
+                        <input autocomplete="off" class="form-control" type="text" name="email" id="email">
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <button class=" btn btn-primary" type="submit">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
