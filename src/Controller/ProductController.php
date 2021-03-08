@@ -15,8 +15,6 @@ class ProductController extends AbstractController
      */
     public function createProduct($name, $price, $description): Response
     {
-        // you can fetch the EntityManager via $this->getDoctrine()
-        // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
         $entityManager = $this->getDoctrine()->getManager();
 
         $product = new Product();
@@ -24,10 +22,7 @@ class ProductController extends AbstractController
         $product->setPrice($price);
         $product->setDescription($description);
 
-        // tell Doctrine you want to (eventually) save the Product (no queries yet)
         $entityManager->persist($product);
-
-        // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
         return $this->redirectToRoute('product_show_all');
@@ -62,7 +57,6 @@ class ProductController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $product = $entityManager->getRepository(Product::class)->find($request->request->get('id'));
 
-            ## Error message if product can't be located
             if (!$product) {
                 throw $this->createNotFoundException(
                     'No product found for id ' . $request->request->get('id')
@@ -74,7 +68,6 @@ class ProductController extends AbstractController
             $product->setDescription($request->request->get('description'));
             $entityManager->flush();
 
-            ## Redirect the request to the corresponding route.
             return $this->redirectToRoute('product_show_all');
         }
         else{
