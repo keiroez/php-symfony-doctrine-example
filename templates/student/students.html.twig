@@ -12,6 +12,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th scope="col">Ação</th>
             </tr>
             </thead>
             {% for student in list %}
@@ -20,6 +21,12 @@
                     <td>{{ student.title }}</td>
                     <td>{{ student.name }}</td>
                     <td>{{ student.email }}</td>
+                    <td>
+                        <a href="/student/{{ student.id }}" type="button" class="btn btn-light" title="Ver"
+                        ><i class="bi bi-pencil"></i></a>
+                        <button type="button" class="btn btn-danger" title="Remover">
+                            <i class="bi bi-trash"></i></button>
+                    </td>
                 </tr>
             {% endfor %}
         </table>
