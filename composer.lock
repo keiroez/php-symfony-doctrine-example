@@ -2915,16 +2915,16 @@
         },
         {
             "name": "symfony/form",
-            "version": "v5.2.3",
+            "version": "v5.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/form.git",
-                "reference": "4f3069be5fe46e72f3ec233fc61ac2828ea5b301"
+                "reference": "7664ad970bc54ae7ac1ccc2ba0c7133c1d0c90f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/form/zipball/4f3069be5fe46e72f3ec233fc61ac2828ea5b301",
-                "reference": "4f3069be5fe46e72f3ec233fc61ac2828ea5b301",
+                "url": "https://api.github.com/repos/symfony/form/zipball/7664ad970bc54ae7ac1ccc2ba0c7133c1d0c90f8",
+                "reference": "7664ad970bc54ae7ac1ccc2ba0c7133c1d0c90f8",
                 "shasum": ""
             },
             "require": {
@@ -3009,7 +3009,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-28T22:06:19+00:00"
+            "time": "2021-03-04T15:41:09+00:00"
         },
         {
             "name": "symfony/framework-bundle",
