@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produtos{% endblock %}
+
+{% block body %}
+    <div class="text-center pt-5 text-white">
+        <h2>Lista de Produtos</h2>
+    </div>
+    <div class="row col-md-12 p-4 m-1">
+        {% for product in products %}
+            <div class="card col-4 col-md-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.id }} - {{ product.name }}</h5>
+                    <p class="card-text">Descrição: {{ product.description }}</p>
+                    <p class="card-text">Preço: R$ {{ product.price|number_format(2, ',', '.') }}</p>
+                    <a type="button" class="btn btn-primary" href="/product/{{ product.id }}/edit">
+                        <i class="bi bi-pencil"></i>
+                        Editar</a>
+                    <a type="button" onclick="return confirm('Deseja excluir este produto?');" class="btn btn-danger" href="/product/{{ product.id }}/delete">
+                        <i class="bi bi-trash"></i>
+                        Remover</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produto{% endblock %}
+
+{% block body %}
+    <div class="container mt-5 p-3 bg-white text-dark">
+        <form class="d-flex justify-content-center" action="/product/{{ product.id }}/edit" method="post">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <div class="row">
+                            <label for="id">Id:</label>
+                        </div>
+                        <div class="row">
+                            <input value="{{ product.id }}" name="id" id="id" readonly type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <div class="row">
+                            <label for="name">Nome:</label>
+                        </div>
+                        <div class="row">
+                            <input value="{{ product.name }}" name="name" id="name" type="text">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <div class="row">
+                            <label for="price">Preço:</label>
+                        </div>
+                        <div class="row">
+                            <input value="{{ product.price }}" name="price" id="price" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <div class="row">
+                            <label for="description">Descrição:</label>
+                        </div>
+                        <div class="row">
+                            <input value="{{ product.description }}" name="description" id="description" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <button class=" btn btn-primary" type="submit">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -35,7 +35,6 @@ class InscricaoController extends AbstractController
         $inscricao->setEmail($request->request->get('email'));
 
         $errors = $validator->validate($inscricao);
-
         if(count($errors) > 0){
             return $this->render('inscricao/index.html.twig', [
                 'errors' => $errors
@@ -43,9 +42,7 @@ class InscricaoController extends AbstractController
         }
 
         $entityManager->persist($inscricao);
-
         $entityManager->flush();
-
         $this->addFlash("ok", "Inscrição de ".$inscricao->getNome(). " efetuada!");
 
         return $this->render('inscricao/index.html.twig', ['errors' => '']);
