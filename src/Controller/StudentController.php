@@ -36,22 +36,22 @@ class StudentController extends AbstractController
     /**
      * @Route("/student/{id}", name="get_student")
      */
-    public function getById(Request $request, int $id): Response
+    public function getById(Request $request, $id): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
-
         $studentinfo = $entityManager->getRepository(Student::class)->find($id);
+
         # create a form with contents from the object
         $form = $this->createFormBuilder($studentinfo)
             ->add('title', TextType::class, ['label' => 'Title'])
             ->add('name', TextType::class, ['label' => 'Name'])
-            ->add('email', EmailType::class, ['label' => 'E-mail'])
+            ->add('email', TextType::class, ['label' => 'E-mail'])
             ->add('save', SubmitType::class, ['label' => 'Save'])
             ->getForm();
 
         # this will not have an effect in first request (via get)
         $form->handleRequest($request);
-        if ($form->isSubmitted()/* && $form->isValid()*/) {
+        if ($form->isSubmitted()) {
             // $form->getData() holds the submitted values
             // but, the original `$task` variable has also been updated
             $studentData = $form->getData();
